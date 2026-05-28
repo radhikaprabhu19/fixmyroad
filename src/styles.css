@@ -1,0 +1,564 @@
+/* =============================================
+   GLOBAL
+   ============================================= */
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* =============================================
+   HERO / DASHBOARD
+   ============================================= */
+.hero {
+  height: 100vh;
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 110px 20px 60px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(30, 15, 15, 0.45)),
+    url("./bg.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* iOS does not support background-attachment: fixed on elements,
+   only on the body. This fallback keeps the bg looking good on mobile. */
+@supports (-webkit-overflow-scrolling: touch) {
+  .hero {
+    background-attachment: scroll;
+  }
+}
+
+.topBrand {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.heroContent {
+  max-width: 850px;
+  width: 100%;
+  animation: fadeUp 1s ease;
+}
+
+.mainTitle {
+  font-size: 52px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subText {
+  font-size: 20px;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* =============================================
+   BUTTONS — hero group
+   ============================================= */
+.btnGroup {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnGroup button {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.35);
+}
+
+.btnGroup button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(21, 101, 192, 0.5);
+}
+
+.btnGroup button:active {
+  transform: scale(0.97);
+}
+
+/* =============================================
+   DASH BUTTON — back button on full map page
+   ============================================= */
+.dashbutton {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: #1565c0;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease;
+}
+
+.dashbutton:hover {
+  background: #0d47a1;
+}
+
+/* =============================================
+   DETECTION PAGE
+   ============================================= */
+.detectContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+}
+
+.detectCard {
+  background: white;
+  border-radius: 20px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(21, 101, 192, 0.12);
+}
+
+.detectTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0 0 12px;
+}
+
+.detectSub {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 32px;
+}
+
+.detectBtn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 24px;
+}
+
+.startBtn {
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+  color: white;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.35);
+}
+
+.startBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(21, 101, 192, 0.45);
+}
+
+.stopBtn {
+  background: linear-gradient(135deg, #c62828, #ef5350);
+  color: white;
+  box-shadow: 0 8px 20px rgba(198, 40, 40, 0.35);
+}
+
+.stopBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(198, 40, 40, 0.45);
+}
+
+.detectBtn:active {
+  transform: scale(0.97);
+}
+
+.statusBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f5f7fa;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 28px;
+}
+
+.activeDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #43a047;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+  flex-shrink: 0;
+}
+
+.inactiveDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   SHARED — home / back link
+   ============================================= */
+.homeLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #1565c0;
+  cursor: pointer;
+  text-underline-offset: 3px;
+}
+
+.homeLink:hover {
+  color: #0d47a1;
+}
+
+/* =============================================
+   REPORT FORM PAGE
+   ============================================= */
+.reportOuter {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e3f2fd, #f5f7fa);
+}
+
+.reportBox {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  background: white;
+  border-radius: 24px;
+  padding: 56px 48px;
+  box-shadow: 0 16px 48px rgba(21, 101, 192, 0.1);
+}
+
+/* Left column — illustration */
+.reportImageSide {
+  flex: 1;
+  text-align: center;
+}
+
+.startTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.startSub {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+.reportImg {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+}
+
+/* Right column — form */
+.reportFormSide {
+  flex: 1;
+}
+
+.formCard {
+  width: 100%;
+}
+
+.reportHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 24px;
+}
+
+.formStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.locBtn {
+  padding: 13px 20px;
+  border: 2px dashed #1565c0;
+  border-radius: 12px;
+  background: #e8f0fe;
+  color: #1565c0;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.locBtn:hover {
+  background: #d0e4fc;
+}
+
+.successText {
+  font-size: 13px;
+  color: #2e7d32;
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.inputBox {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #222;
+  resize: vertical;
+  min-height: 90px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.inputBox:focus {
+  border-color: #1565c0;
+}
+
+.uploadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border: 1.5px dashed #bbb;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.uploadBtn:hover {
+  border-color: #1565c0;
+  background: #f0f6ff;
+  color: #1565c0;
+}
+
+.uploadBtn input[type="file"] {
+  display: none;
+}
+
+.submitBtn {
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+  color: white;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.35);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(21, 101, 192, 0.45);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+   RESPONSIVE — tablet (768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .topBrand {
+    font-size: 32px;
+    top: 28px;
+  }
+
+  .mainTitle {
+    font-size: 36px;
+  }
+
+  .subText {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .btnGroup {
+    gap: 12px;
+  }
+
+  .btnGroup button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .reportBox {
+    flex-direction: column;
+    padding: 36px 28px;
+    gap: 32px;
+  }
+
+  .reportImageSide {
+    order: 1;
+  }
+
+  .reportFormSide {
+    order: 2;
+    width: 100%;
+  }
+
+  .reportImg {
+    max-width: 200px;
+  }
+
+  .startTitle {
+    font-size: 22px;
+  }
+
+  .detectCard {
+    padding: 36px 28px;
+  }
+
+  .detectTitle {
+    font-size: 24px;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — mobile (480px)
+   ============================================= */
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 16px 40px;
+    background-attachment: scroll;
+  }
+
+  .topBrand {
+    font-size: 26px;
+    top: 22px;
+    letter-spacing: 0;
+  }
+
+  .mainTitle {
+    font-size: 28px;
+  }
+
+  .subText {
+    font-size: 14px;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btnGroup button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .reportOuter {
+    padding: 20px 14px;
+    align-items: flex-start;
+  }
+
+  .reportBox {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .reportImageSide {
+    display: none;
+  }
+
+  .reportHeading {
+    font-size: 20px;
+  }
+
+  .detectContainer {
+    padding: 20px 14px;
+    align-items: flex-start;
+  }
+
+  .detectCard {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .detectTitle {
+    font-size: 22px;
+  }
+
+  .dashbutton {
+    bottom: 20px;
+    padding: 10px 22px;
+    font-size: 13px;
+  }
+}
